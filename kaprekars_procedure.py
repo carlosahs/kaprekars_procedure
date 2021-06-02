@@ -27,7 +27,9 @@ def kaprekars_procedure(num: int) -> None:
 
         lowest_to_highest = sum(digits[i] * 10 ** (num_size - i - 1) for i in range(num_size))
         highest_to_lowest = sum(digits[i] * 10 ** i for i in range(num_size))
-        highest_to_lowest *= 10 ** (4 - num_size)
+
+        # make sure this number is 4 digits as the Kaprekar's constant
+        highest_to_lowest *= 10 ** (math.floor(math.log10(KAPREKARS_CONSTANT) - num_size + 1))
 
         num = highest_to_lowest - lowest_to_highest
         print(f"{num:4d}")
