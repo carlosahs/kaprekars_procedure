@@ -1,6 +1,12 @@
+import argparse
 import math
 
 KAPREKARS_CONSTANT = 6174
+
+# parse the command line
+parser = argparse.ArgumentParser()
+parser.add_argument("number", type=int, help="Number to start computing the Kaprekar's procedure")
+opt = parser.parse_args()
 
 def kaprekars_procedure(num: int) -> None:
     """
@@ -39,5 +45,4 @@ def kaprekars_procedure(num: int) -> None:
     print(f"Kaprekar's constant found in #{iterations} iteration")
 
 if __name__ == '__main__':
-    n = int(input("Enter a number to compute the Kaprekar's constant: "))
-    kaprekars_procedure(n)
+    kaprekars_procedure(opt.number)
